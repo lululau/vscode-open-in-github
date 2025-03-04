@@ -91,6 +91,10 @@ const Git = {
     const username = match[2];
     const reponame = match[3];
 
+    if (username.match(/^\d+$/)) {
+      return `${protocol}://${domain}/${reponame}`;
+    }
+
     return `${protocol}://${domain}/${username}/${reponame}`;
 
   }
